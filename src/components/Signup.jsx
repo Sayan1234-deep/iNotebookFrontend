@@ -1,11 +1,14 @@
 import TextField from "@mui/material/TextField";
-import { Grid, Paper, Container } from "@mui/material";
+import { Grid, Paper, Container, Alert } from "@mui/material";
 import "@fontsource/roboto/400.css";
 import AccountBoxIcon from "@mui/icons-material/AccountBox";
 import Button from "@mui/material/Button";
 import { useState } from "react";
+import { useHistory } from "react-router-dom";
 
-const Signup = () => {
+
+const Signup = ({showAlert}) => {
+  const history = useHistory();
   const [credentials, setCredentials] = useState({
     name: "",
     email: "",
@@ -23,6 +26,7 @@ const Signup = () => {
       !credentials.cPassword
     ) {
       console.log("Pls Fill All the data");
+      alert('pls fill all the data')
       return
     }
     const {name, email, password} = credentials
@@ -38,9 +42,15 @@ const Signup = () => {
       },
       body:JSON.stringify({name,email,password})
     });
+    
+        const res = await response.json()
+        console.log(res);
 
-    const res = await response.json()
-    console.log(res);
+        if (res.success) {
+          history.push('/login')
+          localStorage.setItem('token',res.authtoken)
+        }
+    
   };
   return (
     <Container fixed>

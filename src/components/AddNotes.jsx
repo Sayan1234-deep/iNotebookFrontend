@@ -24,6 +24,7 @@ const AddNotes = () => {
     const handleClick=(e)=>{
       e.preventDefault()
       addNote(note.title, note.description, note.tag)
+      setNote({ title: "", description: "", tag: "" });
     }
 
   return (
@@ -40,6 +41,8 @@ const AddNotes = () => {
           Note title
         </InputLabel>
         <TextField
+        required
+        
           value={note.title}
           onChange={onChange}
           name="title"
@@ -52,6 +55,8 @@ const AddNotes = () => {
           Note description
         </InputLabel>
         <TextField
+        required
+        
           value={note.description}
           onChange={onChange}
           name="description"
@@ -66,6 +71,8 @@ const AddNotes = () => {
           Note Tag
         </InputLabel>
         <TextField
+        required
+        
           value={note.tag}
           onChange={onChange}
           name="tag"
@@ -75,6 +82,7 @@ const AddNotes = () => {
         />
 
         <Button
+        disabled={note.title.length<5||note.description.length<5||note.tag.length<5}
           onClick={handleClick}
           sx={{ margin: "30px auto", width: "100%" }}
           variant="contained"

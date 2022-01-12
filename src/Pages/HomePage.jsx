@@ -1,12 +1,11 @@
 import AddNotes from "../components/AddNotes";
 import ShowNotes from "../components/ShowNotes";
 
-
-const HomePage = () => {
+const HomePage = ({ showAlert }) => {
   return (
     <>
-    <AddNotes/>
-    <ShowNotes/>
+      <AddNotes showAlert={showAlert} />
+      <ShowNotes />
     </>
   );
 };
