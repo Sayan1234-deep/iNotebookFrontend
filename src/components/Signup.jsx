@@ -35,13 +35,16 @@ const Signup = ({showAlert}) => {
       console.log("Password Does Not Match");
       return
     }
-    const response = await fetch("/api/auth/createuser", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body:JSON.stringify({name,email,password})
-    });
+    const response = await fetch(
+      "https://inotebookbackendserver.herokuapp.com/api/auth/createuser",
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ name, email, password }),
+      }
+    );
     
         const res = await response.json()
         console.log(res);

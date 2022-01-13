@@ -9,12 +9,16 @@ const NoteState = (props) => {
   const getNotes = async () => {
     //API call
 
-    const response = await fetch(`/api/note/fetchallnotes`, {
-      method: "GET",
-      headers: {
-        "Content-Type": "application/json",
-      "auth-token":localStorage.getItem('token')},
-    });
+    const response = await fetch(
+      `https://inotebookbackendserver.herokuapp.com/api/note/fetchallnotes`,
+      {
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json",
+          "auth-token": localStorage.getItem("token"),
+        },
+      }
+    );
     const json = await response.json()
     setNotes(json)
   };
@@ -23,14 +27,17 @@ const NoteState = (props) => {
     //TODO: APICALL
     //API call
 
-    const response = await fetch(`/api/note/addnote`, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      "auth-token":localStorage.getItem('token'),
-      },
-      body: JSON.stringify({ title, description, tag }),
-    });
+    const response = await fetch(
+      `https://inotebookbackendserver.herokuapp.com/api/note/addnote`,
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          "auth-token": localStorage.getItem("token"),
+        },
+        body: JSON.stringify({ title, description, tag }),
+      }
+    );
     // const json = await response.json();
 
     const note = [
@@ -49,13 +56,16 @@ const NoteState = (props) => {
   //deletenotes
   const deleteNote = async (id) => {
     //API CALL
-    const response = await fetch(`/api/note/deletenote/${id}`, {
-      method: "DELETE",
-      headers: {
-        "Content-Type": "application/json",
-        "auth-token":localStorage.getItem('token'),
-      },
-    });
+    const response = await fetch(
+      `https://inotebookbackendserver.herokuapp.com/api/note/deletenote/${id}`,
+      {
+        method: "DELETE",
+        headers: {
+          "Content-Type": "application/json",
+          "auth-token": localStorage.getItem("token"),
+        },
+      }
+    );
     const json = await response.json();
     console.log(json);
     const newNote = notes.filter((note) => {
@@ -67,14 +77,17 @@ const NoteState = (props) => {
   const editNote = async (id, title, description, tag) => {
     //API call
 
-    const response = await fetch(`/api/note/updatenote/${id}`, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        "auth-token":localStorage.getItem('token'),
-      },
-      body: JSON.stringify({ title, description, tag }),
-    });
+    const response = await fetch(
+      `https://inotebookbackendserver.herokuapp.com/api/note/updatenote/${id}`,
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          "auth-token": localStorage.getItem("token"),
+        },
+        body: JSON.stringify({ title, description, tag }),
+      }
+    );
     const json = response.json();
     //Logic to edit
     for (let index = 0; index < notes.length; index++) {

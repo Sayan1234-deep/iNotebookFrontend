@@ -20,13 +20,16 @@ const GetUser = () => {
   }
 
   const getUser = async () => {
-    const response = await fetch(`/api/auth/getuser`, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        "auth-token": localStorage.getItem("token"),
-      },
-    });
+    const response = await fetch(
+      `https://inotebookbackendserver.herokuapp.com/api/auth/getuser`,
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          "auth-token": localStorage.getItem("token"),
+        },
+      }
+    );
     const json = await response.json();
     setName(json.name);
     setEmail(json.email);
