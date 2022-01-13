@@ -57,7 +57,7 @@ const Signup = ({showAlert}) => {
       <Paper
         style={{
           padding: "20px 20px",
-          width: "400px",
+          width: window.innerWidth <= "360" ? "80%" : "400px",
           margin: "20px auto",
           textAlign: "center",
         }}
@@ -69,7 +69,7 @@ const Signup = ({showAlert}) => {
         <h1>Sign Up</h1>
         <TextField
           color="primary"
-          sx={{ width: "370px", marginTop: "10px" }}
+          sx={{ width: window.innerWidth<="360"?"90%":'370px', marginTop: "10px" }}
           type={"text"}
           variant="outlined"
           required
@@ -79,7 +79,7 @@ const Signup = ({showAlert}) => {
           name="name"
         />
         <TextField
-          sx={{ width: "370px", marginTop: "24px" }}
+          sx={{ width: window.innerWidth<="360"?"90%":'370px', marginTop: "24px" }}
           type={"email"}
           variant="outlined"
           required
@@ -89,7 +89,7 @@ const Signup = ({showAlert}) => {
           name="email"
         />
         <TextField
-          sx={{ width: "370px", marginTop: "24px" }}
+          sx={{ width: window.innerWidth<="360"?"90%":'370px', marginTop: "24px" }}
           type={"password"}
           variant="outlined"
           required
@@ -101,7 +101,7 @@ const Signup = ({showAlert}) => {
 
         <TextField
           color="primary"
-          sx={{ width: "370px", marginTop: "24px" }}
+          sx={{ width: window.innerWidth<="360"?"90%":'370px', marginTop: "24px" }}
           type={"password"}
           variant="outlined"
           required

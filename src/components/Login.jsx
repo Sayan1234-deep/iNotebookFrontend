@@ -3,7 +3,7 @@ import { Paper, Box, Alert } from "@mui/material";
 import "@fontsource/roboto/400.css";
 import LoginIcon from "@mui/icons-material/Login";
 import Button from "@mui/material/Button";
-import { useState } from "react";
+import {  useState } from "react";
 import { useHistory } from "react-router-dom";
 
 const Login = () => {
@@ -11,6 +11,8 @@ const Login = () => {
  
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  
+      
   const handleSubmit = async () => {
     if (!email || !password) {
       return (
@@ -41,7 +43,7 @@ const Login = () => {
       <Paper
         style={{
           padding: "20px 20px",
-          width: "400px",
+          width: window.innerWidth<="360"?"80%":'400px',
           margin: "20px auto",
           textAlign: "center",
           overflowX: "hidden",

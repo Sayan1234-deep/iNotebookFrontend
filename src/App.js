@@ -18,7 +18,6 @@ import About from "./components/About";
 function App() {
   const history = useHistory();
 
-  const [alert, setAlert] = useState(null)
 const logOut = ()=>{
   localStorage.removeItem('token')
        window.location.reload();
@@ -31,7 +30,7 @@ const logOut = ()=>{
     <>
       <NoteState>
         <Router>
-          <Box sx={{ flexGrow: 1, maxWidth: "100%" }}>
+          <Box sx={{ flexGrow: 1, Width: "100%" }}>
             <AppBar
               elevation={7}
               style={{ backgroundColor: "#212121" }}

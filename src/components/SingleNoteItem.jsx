@@ -1,16 +1,12 @@
 import {  Card, CardActions, CardContent, Typography } from "@mui/material"
 import DeleteOutlineIcon from "@mui/icons-material/DeleteOutline";
-import EditIcon from "@mui/icons-material/Edit";
-import { useContext, useState } from "react";
+  import { useContext} from "react";
 import noteContext from "../context/note/noteContext";
 
-const SingleNoteItem = ({title, description, tag,_id, openModal}) => {
+  const SingleNoteItem = ({title, description, tag,_id}) => {
 
-  const [open, setOpen] = useState(false);
-  const handleOpen = () => setOpen(true);
-  const handleClose = () => setOpen(false);
     const context = useContext(noteContext);
-  const { editNote, deleteNote } = context;
+  const {  deleteNote } = context;
 
     return (
       <Card elevation={7} sx={{ mt: "28px", marginRight:'15px' }}>
